@@ -83,4 +83,11 @@ class AuthorsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  #def set_current_author
+  #  session[:current_author_id] = @author.id
+  #  respond_to do |format|
+  #    format.html {redirect_to authors_url; flash[:notice] = "Current Author Set"}
+  #  end
+  #end
 end

@@ -1,0 +1,17 @@
+<div class="home">
+<h1>Blog</h1>
+<div class="button"><%= button_to "New Blog Post", new_article_url %></div>
+<br/>
+<% @articles.sort_by {|a| a.created_at}.reverse.each do |article| %>
+    <div class="article">
+      <div class="<%= cycle('odd_line', 'even_line') %>">
+          <h2><%= article.title %></h2>
+          <p><%= article.content %></p>
+          <div class="author">
+            <p>-<%= article.author.name %></p>
+          </div>
+          <br/>
+      </div>
+    </div>
+<% end %>
+</div>

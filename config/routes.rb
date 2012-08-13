@@ -1,5 +1,6 @@
 Blog::Application.routes.draw do
   get "home/index"
+  post "articles/new"
 
   resources :articles
 

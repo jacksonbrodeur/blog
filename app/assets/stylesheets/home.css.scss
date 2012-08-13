@@ -1,0 +1,33 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.home {
+
+  border_left: 5px dotted #77d;
+
+  h1 {
+    text-align: center;
+  }
+  div.article {
+    padding-left: 300px;
+    padding-right: 300px;
+
+    div.author {
+      text-align: right;
+    }
+  }
+
+  .even_line {
+    background-color: #FFFFFF;
+  }
+  .odd_line {
+    background-color: #C0C0C0;
+  }
+
+  .button {
+    text-align: center;
+  }
+}
+
+
