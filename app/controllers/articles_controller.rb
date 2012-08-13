@@ -41,7 +41,13 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @author = Author.last
+    #session[:current_author] = Author.last
+    #@author = session[:current_author]
+    if !session[:current_author_id].nil?
+      @author = Author.find(session[:current_author_id])
+    else
+      @author = Author.find(1)
+    end
     @article = @author.articles.create(params[:article])
 
     respond_to do |format|

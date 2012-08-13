@@ -1,4 +1,6 @@
 Blog::Application.routes.draw do
+  get "home/index"
+
   resources :articles
 
   resources :authors

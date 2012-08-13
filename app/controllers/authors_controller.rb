@@ -41,9 +41,12 @@ class AuthorsController < ApplicationController
   # POST /authors.json
   def create
     @author = Author.new(params[:author])
+    #session[:current_author] = @author
+    #session[:current_author_id] = @author.id
 
     respond_to do |format|
       if @author.save
+        session[:current_author_id] = @author.id
         format.html { redirect_to @author, notice: 'Author was successfully created.' }
         format.json { render json: @author, status: :created, location: @author }
       else
