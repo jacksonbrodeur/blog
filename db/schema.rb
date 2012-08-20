@@ -11,15 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803171033) do
+ActiveRecord::Schema.define(:version => 20120820005536) do
 
-  create_table "articles", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "author_id"
-  end
+# Could not dump table "articles" because of following StandardError
+#   Unknown type 'user' for column 'user'
 
   create_table "authors", :force => true do |t|
     t.string   "name"
@@ -36,5 +31,8 @@ ActiveRecord::Schema.define(:version => 20120803171033) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+# Could not dump table "users" because of following StandardError
+#   Unknown type 'article' for column 'articles'
 
 end

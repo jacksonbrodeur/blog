@@ -1,6 +1,15 @@
 <div class="home">
-<h1>Blog</h1>
-<div class="button"><%= button_to "New Blog Post", new_article_url %></div>
+
+ <div id="twitter">
+    <% if current_user %>
+          Welcome <%=  current_user.name %>!
+          <%=  link_to "Sign out", signout_path %>
+    <% else %>
+          <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+    <% end %>
+ </div>
+ <h1>Blog</h1>
+  <div class="button"><%= button_to "New Blog Post", new_article_url %></div>
 <br/>
 <% @articles.sort_by {|a| a.created_at}.reverse.each do |article| %>
     <div class="article">
@@ -8,9 +17,14 @@
           <h2><%= article.title %></h2>
           <p><%= article.content %></p>
           <div class="author">
-            <p>-<%= article.author.name %></p>
+            <p>-<%= article.user.name %></p>
+            <p>
+              <% unless current_user == nil || current_user.uid != article.user.uid %>
+                <%= link_to "Edit", edit_article_url(article) %>
+                <%= link_to "Delete", article, method: :delete, data: {confirm: "Are you sure"} %>
+              <% end %>
+            </p>
           </div>
-          <br/>
       </div>
     </div>
 <% end %>

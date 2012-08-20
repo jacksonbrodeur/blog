@@ -43,12 +43,15 @@ class ArticlesController < ApplicationController
   def create
     #session[:current_author] = Author.last
     #@author = session[:current_author]
-    if !session[:current_author_id].nil?
-      @author = Author.find(session[:current_author_id])
-    else
-      @author = Author.find(1)
-    end
-    @article = @author.articles.create(params[:article])
+    #if !session[:current_author_id].nil?
+    #  @author = Author.find(session[:current_author_id])
+    #else
+    #  @author = Author.find(1)
+    #end
+    #@article = @author.articles.create(params[:article])
+
+    @user = current_user
+    @article = @user.articles.create(params[:article])
 
     respond_to do |format|
       if @article.save
@@ -84,7 +87,7 @@ class ArticlesController < ApplicationController
     @article.destroy
 
     respond_to do |format|
-      format.html { redirect_to articles_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end

@@ -4,14 +4,27 @@
 
 div.home {
 
-  border_left: 5px dotted #77d;
+  margin-left: 300px;
+  margin-right: 300px;
+  padding: 2px;
+  border-left: 3px dotted #000;
+  border-right: 3px dotted #000;
+  border-top: 3px dotted #000;
+  border-bottom: 3px dotted #000;
 
   h1 {
     text-align: center;
   }
+
+  div#twitter {
+    text-align: right;
+    padding-right: 2px;
+  }
   div.article {
-    padding-left: 300px;
-    padding-right: 300px;
+
+
+
+
 
     div.author {
       text-align: right;

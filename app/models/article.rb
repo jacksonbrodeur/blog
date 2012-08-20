@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-  attr_accessible :content, :title, :author_id
-  belongs_to :author
+  attr_accessible :content, :title, :user_id
+  belongs_to :user
   validates :title, :content, presence: true
 end
